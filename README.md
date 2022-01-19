@@ -1,19 +1,24 @@
 # system-scripts
 
+Script from https://github.com/SergKolo/sergrep
 
 
+The basic steps of how to create a swap file are described in Arch Wiki article on swap. I took the liberty of condensing all those steps into a script。 
 
-The basic steps of how to create a swap file are described in Arch Wiki article on swap. I took the liberty of condensing all those steps into a script。 Basic usage:
+### Basic usage:
 
 Usage is very simple:
 
+```
 sudo ./addswap.sh INTEGER LETTER
+```
 
 For adding 1 gigabyte you would do sudo ./addswap.sh 1 G. For adding 1 megabyte do sudo ./addswap.sh 1 M.
-Script
 
-This script is also available on my personal GitHub repository.
+### Script
+This script is also available on SergKolo personal GitHub repository (https://github.com/SergKolo/sergrep).
 
+```
 #!/bin/bash
 set -e  # bail if anything goes wrong
 
@@ -96,8 +101,9 @@ main(){
 }
 
 main "$@"
+```
 
-Test run
+### Test run
 
 ```
 $ sudo ./addswap.sh 1 G                                                                                                                                                                 
