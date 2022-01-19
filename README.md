@@ -10,7 +10,32 @@ The basic steps of how to create a swap file are described in Arch Wiki article 
 Usage is very simple:
 
    ```sh
-   sudo ./addswap.sh INTEGER LETTER
+ 
+   sudo -s && cd ~
+
+   # Create a file and paste the sh code (see below)
+   nano addswap.sh
+   
+   # Make file executable
+   chmod u+x addswap.sh
+   
+   # Execute file (sudo ./addswap.sh INTEGER LETTER)
+   sudo ./addswap.sh 5 G
+   
+   # Response
+   Current swap ammount: 1.000000
+   Working on creating swap file
+   1+0 records in
+   1+0 records out
+   1073741824 bytes (5.1 GB, 5.0 GiB) copied, 6.83322 s, 157 MB/s
+   Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
+   no label, UUID=8bf1d78d-0a8a-478b-a783-38c5935c362f
+
+   Created and turned on /swapfile.1498976162
+   Current swap ammount: 5.000000Do you want to turn on this file at boot?[y/n] [Press Y]
+
+    /swapfile.1498976162 added to /etc/fstab successfuly
+
    ```
 
 For adding 1 gigabyte you would do sudo ./addswap.sh 1 G. For adding 1 megabyte do sudo ./addswap.sh 1 M.
@@ -101,25 +126,4 @@ This script is also available on SergKolo personal GitHub repository (https://gi
    }
 
    main "$@"
-   ```
-
-### Test run
-
-   ```sh
-   sudo ./addswap.sh 1 G
-
-   # Response
-   Current swap ammount: 4.000000
-   Working on creating swap file
-   1+0 records in
-   1+0 records out
-   1073741824 bytes (1.1 GB, 1.0 GiB) copied, 6.83322 s, 157 MB/s
-   Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
-   no label, UUID=8bf1d78d-0a8a-478b-a783-38c5935c362f
-
-   Created and turned on /swapfile.1498976162
-   Current swap ammount: 5.000000Do you want to turn on this file at boot?[y/n] [Press Y]
-
-    /swapfile.1498976162 added to /etc/fstab successfuly
-
    ```
